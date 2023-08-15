@@ -1,7 +1,0 @@
-.serverless
-functions/.serverless
-functions/product/.serverless
-functions/scheduler/.serverless
-resources/db/.serverless
-resources/matchingproducts/.serverless
-resources/sendalerttocustomer/.serverless

@@ -7,7 +7,7 @@ module.exports.handler = async (event) => {
     
     const params = {
         Message: `Le produit ${body.title} est maintenant disponible à votre prix.`,
-        PhoneNumber: '+224623684286',
+        PhoneNumber: `${body.phone}`,
     };
 
     try {

@@ -1,7 +1,12 @@
 /backend/.serverless
-/functions/.serverless
-/backend/product/.serverless
-/backend/scheduler/.serverless
+/backend/functions/.serverless
+/backend/functions/product/.serverless
+/backend/functions/scheduler/.serverless
+/backend/functions/product/node_modules
+/backend/functions/scheduler/node_modules
 /backend/resources/db/.serverless
 /backend/resources/matchingproducts/.serverless
+/backend/resources/sendalerttocustomer/.serverless
 /frontend/node_modules
+
+

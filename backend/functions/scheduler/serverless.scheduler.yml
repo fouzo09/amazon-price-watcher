@@ -41,4 +41,4 @@ functions:
     handler: src/send.handler
     events:
       - sqs:
-          arn: arn:aws:sqs:us-east-1:593048217073:matchingProductsQueue
+          arn: arn:aws:sqs:us-east-1:652167590251:matchingProductsQueue
