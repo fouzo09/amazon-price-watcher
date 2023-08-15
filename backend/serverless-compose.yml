@@ -1,0 +1,28 @@
+services:    
+  db:
+    path: resources/db/
+    config: serverless.db.yml
+  matchingproductsqueue:
+    path: resources/matchingproducts/
+    config: serverless.matchingproducts.yml
+  sendalerttocustomer:
+    path: resources/sendalerttocustomer/
+    config: serverless.sendalerttocustomer.yml
+  product:
+    path: functions/product/
+    config: serverless.product.yml
+    params:
+      tableName: ${db.TableName}
+    dependsOn:
+      - db
+  scheduler:
+    path: functions/scheduler/
+    config: serverless.scheduler.yml
+    params:
+      tableName: ${db.TableName}
+      matchingproductsqueueName: ${matchingproductsqueue.QueueName}
+      sendalerttocustomertopicName: ${sendalerttocustomer.TopicName}
+    dependsOn:
+      - db
+      - sendalerttocustomer
+      - matchingproductsqueue

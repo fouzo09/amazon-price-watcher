@@ -1,0 +1,44 @@
+service: jobs
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  iam:
+    role:
+      statements: 
+        - Effect: Allow
+          Action:
+            - dynamodb:DescribeTable
+            - dynamodb:Query
+            - dynamodb:Scan
+            - dynamodb:GetItem
+            - dynamodb:PutItem
+            - dynamodb:UpdateItem
+            - dynamodb:DeleteItem
+          Resource: 'arn:aws:dynamodb:us-east-1:*:*'
+        - Effect: Allow
+          Action:
+            - sqs:SendMessage
+            - sqs:GetQueueUrl
+          Resource: 'arn:aws:sqs:us-east-1:*:*'
+        - Effect: Allow
+          Resource: "*"
+          Action:
+            - sns:Publish
+  environment:
+    TABLE_NAME: ${param:tableName}
+    MATCHING_PRODUCT_QUEUE_NAME: ${param:matchingproductsqueueName}
+    # TOPIC_NAME: ${param:sendalerttocustomertopicName}
+
+functions:
+  checkProductPriceVariation:
+    handler: src/index.handler
+    events:
+      - eventBridge:
+          schedule: rate(2 minutes)
+  sendMessage:
+    handler: src/send.handler
+    events:
+      - sqs:
+          arn: arn:aws:sqs:us-east-1:593048217073:matchingProductsQueue

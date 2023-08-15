@@ -1,0 +1,41 @@
+service: product
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  iam:
+    role:
+      statements: 
+        - Effect: Allow
+          Action:
+            - dynamodb:DescribeTable
+            - dynamodb:Query
+            - dynamodb:Scan
+            - dynamodb:GetItem
+            - dynamodb:PutItem
+            - dynamodb:UpdateItem
+            - dynamodb:DeleteItem
+          Resource: 'arn:aws:dynamodb:us-east-1:*:*'
+  environment:
+    TABLE_NAME: ${param:tableName}
+
+functions:
+  createProduct:
+    handler: src/create.handler
+    events:
+      - http:
+          path: /products/create
+          method: post
+          cors:
+            origins:
+              - '*'
+  listProducts:
+    handler: src/list.handler
+    events:
+      - http:
+          path: /products/list
+          method: get
+          cors:
+            origins:
+              - '*'

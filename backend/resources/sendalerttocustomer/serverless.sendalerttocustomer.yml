@@ -1,0 +1,16 @@
+service: sendalerttocustomer
+frameworkVersion: '3'
+
+provider:
+  name: aws
+
+resources:
+  Resources:
+    sendAlertToCustomerTopic:
+      Type: AWS::SNS::Topic
+      Properties:
+        TopicName: sendAlertToCustomerTopic
+  Outputs:
+    TopicName:
+      Value: !Ref sendAlertToCustomerTopic
+        

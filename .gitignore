@@ -1,0 +1,7 @@
+/backend/.serverless
+/functions/.serverless
+/backend/product/.serverless
+/backend/scheduler/.serverless
+/backend/resources/db/.serverless
+/backend/resources/matchingproducts/.serverless
+/frontend/node_modules

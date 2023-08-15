@@ -1,0 +1,11 @@
+*{
+  padding: 0;
+  margin: 0;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+
+nav > div > a, 
+nav > div > div > a{
+  color: white !important;
+}

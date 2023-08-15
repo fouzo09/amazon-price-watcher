@@ -1,0 +1,15 @@
+service: matchingproducts
+frameworkVersion: '3'
+
+provider:
+  name: aws
+
+resources:
+  Resources:
+    matchingProductsQueue:
+      Type: AWS::SQS::Queue
+      Properties:
+        QueueName: matchingProductsQueue
+  Outputs:
+    QueueName:
+      Value: !Ref matchingProductsQueue
