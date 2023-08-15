@@ -1,3 +1,3 @@
 # amazon-price-watcher
 
-Stack: Nodejs, ReactJS, Serverless framework, AWS Lambda, SQS, EventBridge, SNS
+Stack: Nodejs, API Gateway, S3, ReactJS, Serverless framework, AWS Lambda, SQS, EventBridge, SNS
