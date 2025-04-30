@@ -2,9 +2,9 @@ import axios from 'axios';
 import { BASE_URL, HEADER } from '../global';
 
 axios.interceptors.response.use(function(response){
-    return response
+    return response;
 }, function(error){
-    throw new Error(error?.response?.data)
+    throw new Error(error?.response?.data);
 });
 
 export default class ProductService{
