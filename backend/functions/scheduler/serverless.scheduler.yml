@@ -8,8 +8,8 @@ provider:
     role:
       statements: 
         - Effect: Allow
-          Action:
-            - dynamodb:DescribeTable
+         
+            
            
         - Effect: Allow
           Action:
