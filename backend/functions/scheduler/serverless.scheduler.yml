@@ -8,7 +8,7 @@ provider:
     role:
       statements: 
         - Effect: Allow
-          Action:
+         
             
            
         - Effect: Allow
